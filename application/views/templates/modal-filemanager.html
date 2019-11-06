@@ -1,0 +1,82 @@
+<div id="fstpn-ui-modal-{{ modalData.id }}" class="fstpn-ui-modal" tabindex="-1">
+	<div class="fstpn-ui-modal-dialog" style="max-width:900px;">
+		<div class="fstpn-ui-modal-header">
+			<div class="fstpn-ui-modal-close" x-ng-click="modalData.deferred.resolve('close');">&times;</div>
+			<div class="fstpn-ui-modal-title">FileManager</div>
+		</div>
+		<div class="fstpn-ui-modal-data">
+			<div class="fstpn-ui-block">
+				<div class="fstpn-ui-filemanager">
+					<div class="fstpn-ui-breadcrumb">
+						<ul>
+							<li x-ng-repeat="item in modalData.appData.fileManager.path track by item.id">
+								<span x-ng-if="!$last"><a href="#" x-ng-click="modalData.appData.fileManager.fn.getFolderItemsBreadcrumb(modalData.appData, item);">{{ item.name }}</a><span class="fstpn-ui-breadcrumb-divider">/</span></span>
+								<span x-ng-if="$last">{{ item.name }}</span>
+							</li>
+						</ul>
+					</div>
+					<div class="fstpn-ui-toolbar">
+						<div class="fstpn-ui-toolbar-inner">
+							<div class="fstpn-ui-toolbar-left">
+								<div class="fstpn-ui-btn fstpn-ui-btn-create-folder" x-ng-click="modalData.appData.fileManager.fn.createFolderConfirm(modalData.appData);"><i class="fa fa-fw fa-plus"></i>Create Folder</div>
+								<div class="fstpn-ui-btn fstpn-ui-btn-upload-file" x-ng-click="modalData.appData.fileManager.fn.uploadFileConfirm(modalData.appData);"><i class="fa fa-fw fa-upload"></i>Upload File</div>
+							</div>
+							<div class="fstpn-ui-toolbar-right">
+								<div class="fstpn-ui-btn fstpn-ui-btn-paste" x-ng-class="{'fstpn-ui-hidden': !modalData.appData.fileManager.clipboard.items.length}" x-ng-click="modalData.appData.fileManager.fn.pasteItemsConfirm(modalData.appData);"><i class="fa fa-fw fa-clipboard"></i>Paste<div class="fstpn-ui-btn-info">{{ modalData.appData.fileManager.clipboard.items.length }}</div><div class="fstpn-ui-btn-info-bottom">{{ modalData.appData.fileManager.clipboard.operation }}</div></div>
+								<div class="fstpn-ui-btn fstpn-ui-btn-copy" x-ng-class="{'fstpn-ui-hidden': !modalData.appData.fileManager.fn.isSelected(modalData.appData) }" x-ng-click="modalData.appData.fileManager.fn.copyItems(modalData.appData);"><i class="fa fa-fw fa-files-o"></i>Copy<div class="fstpn-ui-btn-flag" x-ng-if="modalData.appData.fileManager.clipboard.operation == 'copy'"></div></div>
+								<div class="fstpn-ui-btn fstpn-ui-btn-cut" x-ng-class="{'fstpn-ui-hidden': !modalData.appData.fileManager.fn.isSelected(modalData.appData) }" x-ng-click="modalData.appData.fileManager.fn.cutItems(modalData.appData);"><i class="fa fa-fw fa-scissors"></i>Cut<div class="fstpn-ui-btn-flag" x-ng-if="modalData.appData.fileManager.clipboard.operation == 'cut'"></div></div>
+								<div class="fstpn-ui-btn fstpn-ui-btn-delete" x-ng-class="{'fstpn-ui-hidden': !modalData.appData.fileManager.fn.isSelected(modalData.appData) }" x-ng-click="modalData.appData.fileManager.fn.removeItemsConfirm(modalData.appData);"><i class="fa fa-fw fa-trash-o"></i>Delete</div>
+							</div>
+						</div>
+					</div>
+					<div class="fstpn-ui-files" x-ng-init="modalData.appData.fileManager.fn.itemsInit(modalData.appData);">
+						<table class="fstpn-ui-table" cellpadding="0" cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th width="8"><div x-checkbox class="fstpn-ui-select-all" x-ng-class="{'fstpn-ui-active': (modalData.appData.fileManager.selectedAll = modalData.appData.fileManager.fn.isSelectedAll(modalData.appData))}" x-ng-model="modalData.appData.fileManager.selectedAll" x-ng-change="modalData.appData.fileManager.fn.selectAll(modalData.appData, modalData.appData.fileManager.selectedAll);"></div></th>
+									<th width="8"></th>
+									<th>Title</th>
+									<th width="120">Size</th>
+									<th width="120">Date Created</th>
+									<th width="120">Date Updated</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr x-ng-repeat="item in modalData.appData.fileManager.items track by item.id" x-ng-dblclick="modalData.appData.fileManager.fn.selectRow(modalData.appData, item);">
+									<td><div x-checkbox x-ng-model="item.selected"></div></td>
+									<td class="fstpn-ui-col-icon"><span class="fstpn-ui-icon {{ item.type=='folder' ? 'fstpn-ui-icon-folder' : 'fstpn-ui-icon-file' }}"></span></td>
+									<td class="fstpn-ui-col-title" x-ng-class="{'fstpn-ui-col-edit': item.edit }">
+										<a x-ng-if="item.type=='file'" href="#" rel="nofollow" x-ng-click="modalData.deferred.resolve(item);$event.preventDefault();">{{ item.name }}</a>
+										<a x-ng-if="item.type=='folder'" href="#" x-ng-click="modalData.appData.fileManager.fn.getFolderItems(modalData.appData, item);">{{ item.name }}</a>
+										<input type="text" x-ng-model="item.tmpname" x-press-enter="modalData.appData.fileManager.fn.renameItem(modalData.appData, item);" x-press-esc="modalData.appData.fileManager.fn.editItemClose(modalData.appData, item);">
+										<div class="fstpn-ui-row-toolbar">
+											<i x-ng-if="item.edit" class="fstpn-ui-row-btn fa fa-fw fa-floppy-o" x-ng-click="modalData.appData.fileManager.fn.renameItem(modalData.appData, item);"></i>
+											<i x-ng-if="!item.edit" class="fstpn-ui-row-btn fa fa-fw fa-pencil" x-ng-click="modalData.appData.fileManager.fn.editItemOpen(modalData.appData, item);"></i>
+											<i x-ng-if="item.edit" class="fstpn-ui-row-btn fa fa-fw fa-times" x-ng-click="modalData.appData.fileManager.fn.editItemClose(modalData.appData, item);"></i>
+										</div>
+									</td>
+									<td x-ng-if="item.type=='file'">{{ item.size | fileSize }}</td>
+									<td x-ng-if="item.type=='folder'"></td>
+									<td>{{ item.created_at | date:'dd.MM.yyyy hh:mm' }}</td>
+									<td>{{ item.updated_at | date:'dd.MM.yyyy hh:mm' }}</td>
+								</tr>
+							</tbody>
+						</table>
+						
+						<ul class="fstpn-ui-pagination" x-ng-class="{'fstpn-ui-active': modalData.appData.fileManager.pages.length > 1 }">
+							<li><span x-ng-class="{'fstpn-ui-disabled': modalData.appData.fileManager.page <= 0}" x-ng-click="modalData.appData.fileManager.fn.getPrevPage(modalData.appData);"><i class="fa fa-angle-left">&nbsp;</i></span></li>
+							<li x-ng-repeat="page in modalData.appData.fileManager.pages">
+								<span x-ng-class="{'fstpn-ui-active': modalData.appData.fileManager.page == page - 1}" x-ng-click="modalData.appData.fileManager.fn.getPage(modalData.appData, page - 1);">{{ page }}</span>
+							</li>
+							<li><span x-ng-class="{'fstpn-ui-disabled': modalData.appData.fileManager.page >= modalData.appData.fileManager.pages.length - 1}" x-ng-click="modalData.appData.fileManager.fn.getNextPage(modalData.appData);"><i class="fa fa-angle-right">&nbsp;</i></span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="fstpn-ui-modal-footer">
+			<div class="fstpn-ui-modal-btn fstpn-ui-modal-btn-close" x-ng-click="modalData.deferred.resolve('close');">Close</div>
+			<div class="fstpn-ui-modal-btn fstpn-ui-modal-btn-select" x-ng-click="modalData.deferred.resolve(true);" x-ng-if="modalData.multiSelect">Select</div>
+		</div>
+	</div>
+</div>

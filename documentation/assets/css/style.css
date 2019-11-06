@@ -1,0 +1,265 @@
+/*!
+  Documentation
+  @name style.css
+  @description file with documentation
+  @author Max Lawrence 
+  @site http://www.avirtum.com
+  @copyright (c) 2016 Max Lawrence (http://www.avirtum.com)
+*/
+.clear-fix {
+  *zoom: 1;
+}
+.clear-fix:before,
+.clear-fix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clear-fix:after {
+  clear: both;
+}
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+mark {
+  padding: 5px 15px;
+  background-color: #25b89a;
+  color: #fff;
+}
+hr {
+  border-top: 1px solid rgba(37, 184, 154, 0.4);
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+/*===========================================
+ * Additional
+ *===========================================*/
+.wrap-page {
+  width: 100%;
+}
+.wrap-header {
+  -webkit-box-shadow: 0px 0px 11px 2px rgba(50, 50, 50, 0.1);
+  -moz-box-shadow: 0px 0px 11px 2px rgba(50, 50, 50, 0.1);
+  box-shadow: 0px 0px 11px 2px rgba(50, 50, 50, 0.1);
+  position: relative;
+  padding: 25px 0 0;
+  background-color: #34495d;
+  border-bottom: 1px solid #fff;
+}
+.wrap-footer {
+  background-color: #222f3c;
+}
+.wrap-footer .footer {
+  padding: 5px 15px;
+}
+.wrap-footer .footer p {
+  color: #ffffff;
+  font-size: 12px;
+  margin: 0;
+}
+#slide-menu-toggle {
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 24px;
+  text-align: center;
+  background-color: #19222c;
+  color: #ffffff;
+  z-index: 999;
+  cursor: pointer;
+}
+#slide-menu-toggle:before {
+  content: "\f0c9";
+  font-family: FontAwesome;
+}
+#slide-menu-toggle.active {
+  -webkit-box-shadow: 0px 0px 5px 2px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow: 0px 0px 5px 2px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 0px 5px 2px rgba(50, 50, 50, 0.5);
+  left: 300px;
+  background-color: #25b89a;
+}
+#slide-menu {
+  -webkit-box-shadow: 0px 0px 5px 2px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow: 0px 0px 5px 2px rgba(50, 50, 50, 0.5);
+  box-shadow: 0px 0px 5px 2px rgba(50, 50, 50, 0.5);
+  font-size: 16px;
+  background-color: #34495d;
+  border: none;
+  border-radius: 0;
+  border-right: 1px solid #19222c;
+  z-index: 999;
+}
+#slide-menu .brand {
+  padding: 30px 15px;
+  border-bottom: 2px solid #2f4153;
+}
+#slide-menu .brand img {
+  display: block;
+  margin: 0 auto;
+}
+#slide-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#slide-menu ul li a {
+  font-family: "Droid Sans", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  color: #ffffff;
+  border-bottom: 2px solid #2f4153;
+}
+#slide-menu ul li a:hover {
+  background-color: #25b89a;
+}
+.header {
+  text-align: center;
+  color: #fff;
+}
+.header-title h1 {
+  font-family: "Droid Serif", sans-serif;
+  font-size: 36px;
+  line-height: 1.3;
+  margin: 0 40px 15px;
+}
+.header-subtitle {
+  font-family: "Droid Serif", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+.social-list {
+  *zoom: 1;
+  float: right;
+}
+.social-list:before,
+.social-list:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.social-list:after {
+  clear: both;
+}
+.social-list a {
+  display: block;
+  float: right;
+  padding: 2px 7px;
+  min-width: 27px;
+  font-size: 22px;
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+}
+.social-list a.site:hover {
+  background-color: #25b89a;
+  color: #fff;
+}
+.social-list a.site::before {
+  content: "\f0ac";
+  font-family: FontAwesome;
+}
+.social-list a.twitter:hover {
+  background-color: #33ccff;
+  color: #fff;
+}
+.social-list a.twitter::before {
+  content: "\f099";
+  font-family: FontAwesome;
+}
+.social-list a.github:hover {
+  background-color: #000;
+  color: #fff;
+}
+.social-list a.github::before {
+  content: "\f09b";
+  font-family: FontAwesome;
+}
+.social-list a .social-name {
+  display: none;
+}
+.fancyimg {
+  -webkit-box-shadow: 0px 0px 11px 2px rgba(50, 50, 50, 0.1);
+  -moz-box-shadow: 0px 0px 11px 2px rgba(50, 50, 50, 0.1);
+  box-shadow: 0px 0px 11px 2px rgba(50, 50, 50, 0.1);
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
+}
+.offset-top {
+  margin-top: 30px;
+}
+.promo {
+  -webkit-box-shadow: 0px 0px 11px 2px rgba(50, 50, 50, 0.1);
+  -moz-box-shadow: 0px 0px 11px 2px rgba(50, 50, 50, 0.1);
+  box-shadow: 0px 0px 11px 2px rgba(50, 50, 50, 0.1);
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 30px 45px;
+  font-family: "Droid Sans", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+}
+.promo.quote:before {
+  content: "\f10d";
+  font-family: FontAwesome;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
+.promo.quote:after {
+  content: "\f10e";
+  font-family: FontAwesome;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+}
+.section {
+  -webkit-box-shadow: 0px 0px 11px 2px rgba(50, 50, 50, 0.1);
+  -moz-box-shadow: 0px 0px 11px 2px rgba(50, 50, 50, 0.1);
+  box-shadow: 0px 0px 11px 2px rgba(50, 50, 50, 0.1);
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+}
+.section .section-title {
+  background-color: #25b89a;
+  color: #ffffff;
+  padding: 15px;
+}
+.section .section-title h2 {
+  font-family: "Droid Serif", sans-serif;
+  font-size: 22px;
+  margin: 0;
+}
+.section .section-data {
+  padding: 15px;
+  font-family: "Droid Sans", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+.text-small {
+  font-size: 16px;
+}

@@ -1,0 +1,28 @@
+<div id="fstpn-ui-modal-{{ modalData.id }}" class="fstpn-ui-modal" tabindex="-1">
+	<div class="fstpn-ui-modal-dialog">
+		<div class="fstpn-ui-modal-header">
+			<div class="fstpn-ui-modal-close" x-ng-click="modalData.fn.close(modalData);">&times;</div>
+			<div class="fstpn-ui-modal-title">Upload files</div>
+		</div>
+		<div class="fstpn-ui-modal-data">
+			<div class="fstpn-ui-modal-label">Files will be uploaded to {{ modalData.path }}</div>
+			<div class="fstpn-ui-modal-btn fstpn-ui-modal-btn-select fstpn-ui-modal-btn-full-width" x-ngf-select="modalData.fn.select(modalData, $files)" x-ngf-multiple="true" x-ngf-keep="true">Select Files</div>
+			<div class="fstpn-ui-modal-file-list">
+				<div class="fstpn-ui-modal-file" x-ng-class="{'fstpn-ui-modal-file-error': file.error, 'fstpn-ui-modal-file-success': file.progress == 100}" x-ng-repeat="(index, file) in modalData.files">
+					<div class="fstpn-ui-modal-file-name">{{ file.name }}</div>
+					<div class="fstpn-ui-modal-file-size">{{ file.size | fileSize }}</div>
+					<div class="fstpn-ui-modal-file-close" x-ng-click="modalData.fn.remove(modalData, index);"><i class="fa fa-fw fa-times"></i></div>
+					<div x-ng-if="file.progress && !file.error" class="fstpn-ui-modal-file-progress-wrap">
+						<div class="fstpn-ui-modal-file-progress">
+							<div class="fstpn-ui-modal-file-progress-bar" style="width: {{file.progress}}%">&nbsp;{{ file.progress }}%</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="fstpn-ui-modal-footer">
+			<button class="fstpn-ui-modal-btn fstpn-ui-modal-btn-close" x-ng-click="modalData.fn.close(modalData);">Close</button>
+			<button class="fstpn-ui-modal-btn fstpn-ui-modal-btn-create" x-ng-click="modalData.fn.upload(modalData);" x-ng-disabled="!modalData.files.length || modalData.inprocess">Upload</button>
+		</div>
+	</div>
+</div>

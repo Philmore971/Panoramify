@@ -1,0 +1,184 @@
+/*!
+  iPanorama 360 - jQuery Virtual Tour
+  @name ipanorama.theme.fastpano.css
+  @description a jQuery plugin for creating a panorama viewer and virtual tours
+  @version 1.2.2
+  @author Max Lawrence 
+  @site http://www.avirtum.com
+  @copyright (c) 2016 Max Lawrence (http://www.avirtum.com)
+*/
+.ipnrm.ipnrm-theme-fastpano .ipnrm-view {
+  background-color: #19191b;
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-info,
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn-load {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  padding: 10px 15px;
+  color: #ffffff;
+  background-color: #0d0d0e;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn-load {
+  cursor: pointer;
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn-load:hover {
+  color: #19191b;
+  background-color: #ffffff;
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn-load:before {
+  content: "CLICK TO LOAD...";
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn-load p {
+  display: none;
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-load-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  background-color: transparent;
+  z-index: 1;
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-load-info p {
+  display: none;
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-load-info-inner {
+  -webkit-animation: ipanorama-loader-fastpano 1.1s infinite linear;
+  animation: ipanorama-loader-fastpano 1.1s infinite linear;
+  width: 100%;
+  height: 100%;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAopJREFUeNrUWYtxgzAMhV4HYAQ2KBvE3YARGCHdIJ3AzQSswAY0EySZADaADVyLs6lDHJAFJkR3yu+C/BDSkyyHQojgleQdXsIwnGODKd2p96FcpLZST1J/lZKkcy7RwwAsl9qAHUdt1LVsDcCwSKkXj6JIpGkqOOeiLEsxFPgN/jMCvnQB7gI4ksr1QnEcizzPRdM0YkoOhwPG61ytsQjgROpZexSAugh4GRkqZ7XWLMCJjlN49BiPDgVu0DG+EyrgHiw8VorADSZJQknK5BHgsHu5p7VEJUQkPRRkWTYZ5HVdB5fLJbher/33oiiCtm0pLAQXfSpKnPRwpGMW41l45AQvYmM6wgDmOmankgnYwligUtdmRjHJ1G8VETSfAsw0G4wl2H6/p3DpDYc7KBsD3Bkcoy4Zz2ZypIT4TB0rZPkIMNNFAeHZZoozEdzeuHp5CDgf865RAOaCpYDObYCbsdg1EiwNlpPUgZtvALMxZjCqVemhxcUmIgOsb0b8BrvdzmrxeDzqj98eAGNtsv/MU3dpaxGrqjJ51pdgeLo0PdxVFMbu6RTKrZLCI2CM7Q7jm5GxVtG9AXz0CPiKZJUeMEZqj4DRticBQ9e1KVFJJ2xJB5xs7MkyjzAyDLWZPNxvgaClBOCWtpF7BMwx7aYJGEPem6K1E8JoTJklIAtCjPjfyYxh5trqPas03zQ/yAs30fz07eXcrfia7SU2LDbTwLvE0ya2SK5efsom1DZIARLfE/uBQjUytUGFH8qrMcHmj9Qv9CDlyYoepFCSYmm1JjV6GLgFsM7j1meDJQ20V4jZ2QNt65GBB130yGAJLl39UGYzx16PJvDUg8XIEoeLHiyGr3Z0+yfAAJ1ViEC/YzjDAAAAAElFTkSuQmCC);
+  background-repeat: no-repeat;
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-load-progress {
+  display: none;
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn {
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-size: contain;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn.ipnrm-btn-scene-prev {
+  top: 0;
+  left: 0;
+  background-image: url('prev-scene.png');
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn.ipnrm-btn-scene-next {
+  top: 0;
+  left: 40px;
+  background-image: url('next-scene.png');
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn.ipnrm-btn-zoom-out {
+  top: 0;
+  left: 80px;
+  background-image: url('zoom-out.png');
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn.ipnrm-btn-zoom-in {
+  top: 0;
+  left: 120px;
+  background-image: url('zoom-in.png');
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn.ipnrm-btn-fullscreen {
+  top: 0;
+  right: 0;
+  background-image: url('fullscreen.png');
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn.ipnrm-btn-fullscreen.ipnrm-active {
+  background-image: url('windowed.png');
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn.ipnrm-btn-autorotate {
+  top: 0;
+  right: 40px;
+  background-image: url('autorotate-play.png');
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn.ipnrm-btn-autorotate.ipnrm-active {
+  background-image: url('autorotate-pause.png');
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-btn.ipnrm-btn-share {
+  top: 0;
+  right: 80px;
+  background-image: url('share.png');
+}
+.ipnrm.ipnrm-theme-fastpano.ipnrm-no-scene-nextprev-ctrl .ipnrm-btn.ipnrm-btn-zoom-out {
+  left: 0;
+}
+.ipnrm.ipnrm-theme-fastpano.ipnrm-no-scene-nextprev-ctrl .ipnrm-btn.ipnrm-btn-zoom-in {
+  left: 40px;
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 40px;
+  line-height: 40px;
+  color: #ffffff;
+  padding: 0 80px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: center;
+  z-index: 2;
+}
+.ipnrm.ipnrm-theme-fastpano .ipnrm-toolbar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 40px;
+  background-color: rgba(25, 25, 27, 0.5);
+  z-index: 1;
+}
+@-webkit-keyframes ipanorama-hotspot-pulse-fastpano {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -336px;
+  }
+}
+@keyframes ipanorama-hotspot-pulse-fastpano {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -336px;
+  }
+}
+@-webkit-keyframes ipanorama-loader-fastpano {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes ipanorama-loader-fastpano {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

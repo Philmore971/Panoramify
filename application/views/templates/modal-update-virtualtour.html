@@ -1,0 +1,47 @@
+<div id="fstpn-ui-modal-{{ modalData.id }}" class="fstpn-ui-modal" tabindex="-1">
+	<div class="fstpn-ui-modal-dialog">
+		<div class="fstpn-ui-modal-header">
+			<div class="fstpn-ui-modal-close" x-ng-click="modalData.deferred.resolve('close');">&times;</div>
+			<div class="fstpn-ui-modal-title">Virtual Tour</div>
+		</div>
+		<div class="fstpn-ui-modal-data">
+			<input class="fstpn-ui-modal-vt-title" type="text" x-ng-model="modalData.panoramaConfig.title" placeholder="Virtual Tour Title"></input>
+			
+			<div class="fstpn-ui-modal-vt-toolbar">
+				<div class="fstpn-ui-modal-vt-btn-create" x-ng-click="modalData.appData.virtualTourManager.builder.fn.addItemsConfirm(modalData.appData);"><i class="fa fa-fw fa-plus"></i>Add Scene Images</div>
+				<div class="fstpn-ui-modal-vt-btn-delete" x-ng-class="{'fstpn-ui-modal-ui-hidden': !modalData.appData.virtualTourManager.builder.fn.isSelected(modalData.appData) }" x-ng-click="modalData.appData.virtualTourManager.builder.fn.removeItemsConfirm(modalData.appData);"><i class="fa fa-fw fa-trash-o"></i>Delete</div>
+			</div>
+			
+			<div x-as-sortable x-ng-model="modalData.panoramaConfig.scenes">
+				<div x-ng-repeat="scene in modalData.panoramaConfig.scenes" x-as-sortable-item>
+					<div class="fstpn-ui-modal-vt" x-as-sortable-item-handle>
+						<div class="fstpn-ui-modal-vt-image" x-ng-click="modalData.appData.virtualTourManager.builder.fn.selectImageConfirm(modalData.appData, scene.image);">
+							<div class="fstpn-ui-modal-vt-image-preview" x-ng-style="{'background-image': 'url(' + modalData.appData.virtualTourManager.builder.fn.getImageUrl(modalData.appData, scene.image) + ')'}"></div>
+							<div class="fstpn-ui-modal-vt-image-clear" x-ng-click="scene.image.url='';$event.stopPropagation();"></div>
+							<div class="fstpn-ui-modal-vt-image-edit" x-ng-click="modalData.appData.virtualTourManager.builder.fn.setUrlConfirm(modalData.appData, scene.image);$event.stopPropagation();"></div>
+							<div class="fstpn-ui-modal-vt-image-title">Scene Image</div>
+						</div>
+						<div class="fstpn-ui-modal-vt-image" x-ng-click="modalData.appData.virtualTourManager.builder.fn.selectImageConfirm(modalData.appData, scene.imageThumb);">
+							<div class="fstpn-ui-modal-vt-image-preview" x-ng-style="{'background-image': 'url(' + modalData.appData.virtualTourManager.builder.fn.getImageUrl(modalData.appData, scene.imageThumb) + ')'}"></div>
+							<div class="fstpn-ui-modal-vt-image-clear" x-ng-click="scene.imageThumb.url='';$event.stopPropagation();"></div>
+							<div class="fstpn-ui-modal-vt-image-edit" x-ng-click="modalData.appData.virtualTourManager.builder.fn.setUrlConfirm(modalData.appData, scene.imageThumb);$event.stopPropagation();"></div>
+							<div class="fstpn-ui-modal-vt-image-title">Scene Thumb</div>
+						</div>
+						<input class="fstpn-ui-modal-vt-scene-title" type="text" x-ng-model="scene.title" placeholder="Scene Title"></input>
+						<div class="fstpn-ui-modal-vt-scene-lookat">
+							<input class="fstpn-ui-modal-vt-scene-yaw" type="text" x-ng-model="scene.yaw" x-empty-to-null placeholder="Yaw [0:360]"></input>
+							<input class="fstpn-ui-modal-vt-scene-pitch" type="text" x-ng-model="scene.pitch" x-empty-to-null placeholder="Pitch [-90:90]"></input>
+							<input class="fstpn-ui-modal-vt-scene-zoom" type="text" x-ng-model="scene.zoom" x-empty-to-null placeholder="Zoom [0:75]"></input>
+						</div>
+						
+						<div x-checkbox x-ng-model="scene.selected"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="fstpn-ui-modal-footer">
+			<div class="fstpn-ui-modal-btn fstpn-ui-modal-btn-close" x-ng-click="modalData.deferred.resolve('close');">Close</div>
+			<div class="fstpn-ui-modal-btn fstpn-ui-modal-btn-delete" x-ng-click="modalData.deferred.resolve(true);">Save</div>
+		</div>
+	</div>
+</div>

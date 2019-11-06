@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+<!-- meta -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="Documentation">
+<meta name="author" content="Max Lawrence">
+<meta name="copyright" content="Avirtum">
+<meta name="keywords" content="">
+<title>FastPano 360 - Virtual Tour Constructor</title>
+<!-- /end meta -->
+
+<!-- favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="assets/favicons/favicon.ico">
+<!-- /end favicon -->
+
+<!-- fonts -->
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
+<!-- /end fonts -->
+
+<!-- styles -->
+<link rel="stylesheet" type="text/css" href="assets/js/lib/fancybox/jquery.fancybox.css">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<!-- /end styles -->
+</head>
+<body>
+
+<!-- wrap-page -->
+<div class="wrap-page">
+
+	<!-- slide-menu -->
+	<div id="slide-menu-toggle">
+	</div>
+	<nav id="slide-menu" class="panel" role="navigation">
+		<div class="brand">
+			<a href="http://avirtum.com/">
+				<img src="assets/images/brand.png" alt="Avirtum">
+			</a>
+		</div>
+		<ul>
+			<li><a href="#about">About</a></li>
+			<li><a href="#files">Files and Structure</a></li>
+			<li><a href="#setup">Installation</a></li>
+			<li><a href="#source-and-credits">Source and Credits</a></li>
+		</ul>
+	</nav>
+	<!-- /end slide-menu -->
+
+
+	<!-- wrap-header -->
+	<div class="wrap-header">
+		<div class="header">
+			<div class="header-title"><h1><mark>FastPano 360</mark> - Virtual Tour Constructor</h1></div>
+			<div class="header-subtitle">by AVIRTUM</div>
+		</div>
+		<div class="container">
+			<div class="social-list">
+				<a href="http://avirtum.com/" class="site"><span class="social-name">WebSite</span></a>
+				<a href="https://github.com/MaxLawrence" class="github"><span class="social-name">GitHub</span></a>
+				<a href="https://twitter.com/avirtumcom" class="twitter"><span class="social-name">Twitter</span></a>
+			</div>
+		</div>
+	</div>
+	<!-- /end wrap-header -->
+	
+	<div class="container offset-top">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- promo -->
+				<div class="promo quote">
+					<p><i>Thank you for purchasing this script. If you have any questions that are beyond the scope of this help file, please feel free to email on <a href="mailto:avirtum@gmail.com">avirtum@gmail.com</a>. <b>Thanks so much!</b></i></p>
+				</div>
+				<!-- /end promo -->
+			</div>
+		</div>
+	</div>
+	
+	<div class="container offset-top">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- section -->
+				<div id="about" class="section">
+					<div class="section-title">
+						<h2>About the plugin</h2>
+					</div>
+					<div class="section-data">
+						<p><b>FastPano 360</b> is a php script that lets you create awesome virtual tours for your customers without advanced programming knowledge. Using the built-in filemanager you can easily upload and manage your panoramic and thumbnail photos, with the virtual tour manager you can quickly add new scenes and publish it for your clients. FastPano 360 is simple to use. It has admin and client part. The admin part uses to manage virtual tours and the client part uses to view a virtual tour. All what you need is just to upload script files to your hosting, change the admin login and password and use it. This plugin is responsive and works on all modern browsers and mobile devices. Use this plugin to create interactive tours, maps and presentations.
+						<p class="text-center">
+						<a rel="group_01" class="fancyimg" href="assets/images/screenshot-01.jpg" title=""><img src="assets/images/screenshot-01.jpg" alt="" height="200px"/></a>
+						<a rel="group_01" class="fancyimg" href="assets/images/screenshot-02.jpg" title=""><img src="assets/images/screenshot-02.jpg" alt="" height="200px"/></a>
+						<a rel="group_01" class="fancyimg" href="assets/images/screenshot-03.jpg" title=""><img src="assets/images/screenshot-03.jpg" alt="" height="200px"/></a>
+						</p>
+					</div>
+				</div>
+				<!-- /end section -->
+			</div>
+		</div>
+	</div>
+	
+	<div class="container offset-top">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- section -->
+				<div id="files" class="section">
+					<div class="section-title">
+						<h2>Files and Structure</h2>
+					</div>
+					<div class="section-data">
+						<p>The plugin's folder contains:</p>
+						<ul class="text-small">
+						<li><strong>src</strong> - folder with source files (you should copy it to your web server)
+							<ul>
+							<li><strong>application</strong> - folder with codeigniter application (config, controlers and views)</li>
+							<li><strong>assets</strong> - folder with the main angularjs application source files and extra-libraries, css styles and images</li>
+							<li><strong>lib</strong> - folder with the libraries used in the client part</li>
+							<li><strong>system</strong> - system codeigniter folder</li>
+							<li><strong>upload</strong> - folder for upload files (root)</li>
+							<li><strong>vtours</strong> - folder for virtual tour config files</li>
+							<li><strong>.htaccess</strong> - apache config for url routing</li>
+							<li><strong>index.php</strong> - main php file</li>
+							</ul>
+						</li>
+						</ul>
+					</div>
+				</div>
+				<!-- /end section -->
+			</div>
+		</div>
+	</div>
+	
+	<div class="container offset-top">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- section -->
+				<div id="setup" class="section">
+					<div class="section-title">
+						<h2>Installation</h2>
+					</div>
+					<div class="section-data">
+						<p>Uploading the script via FTP to your web server</p>
+						<ol class="text-small">
+							<li>Download the zipped script pack to your local computer from CodeCanyon and extract the ZIP file contents to a folder on your local computer.</li>
+							<li>In the extracted folder you will find the folder <b>'fastpano'</b>.</li>
+							<li>Setup your settings in the config file <b>'fastpano/application/config/myconfig.php'</b>. Set your own login and password.</li>
+							<li>Change settings in the config file <b>'fastpano/application/config/config.php'</b>. You should set the right base_url (see codeigniter documentation).</li>
+							<li>Use an FTP client to access your host web server.</li>
+							<li>Upload the script folder <b>'fastpano'</b> to your host web server (root directory or subdirectory).</li>
+							<li>Setup right permissions for upload and vtours folders.</li>
+							<li>Type in the browser <b>http://yousite.com/fastpano</b> (depends on the last step).</li>
+							<li>Check script working.</li>
+						</ol>
+					</div>
+				</div>
+				<!-- /end section -->
+			</div>
+		</div>
+	</div>
+	
+	<div class="container offset-top">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- section -->
+				<div id="source-and-credits" class="section">
+					<div class="section-title">
+						<h2>Sources and Credits</h2>
+					</div>
+					<div class="section-data">
+						<p>I've used the following libraries:</p>
+						<ul class="text-small">
+							<li>jQuery - <a href="http://www.jquery.com">http://www.jquery.com</a></li>
+							<li>FontAwesome - <a href="http://fortawesome.github.io/Font-Awesome/">http://fortawesome.github.io/Font-Awesome</a></li>
+							<li>Angular - <a href="https://github.com/angular/angular.js">https://github.com/angular/angular.js</a></li>
+							<li>CodeIgniter - <a href="https://www.codeigniter.com">https://www.codeigniter.com</a></li>
+							<li>Angular Growl v2 - <a href="http://janstevens.github.io/angular-growl-2">http://janstevens.github.io/angular-growl-2</a></li>
+							<li>ngFileUpload - <a href="https://github.com/danialfarid/ng-file-upload">https://github.com/danialfarid/ng-file-upload</a></li>
+							<li>FeatherLight - <a href="https://github.com/noelboss/featherlight/">https://github.com/noelboss/featherlight</a></li>
+							<li>jsSocials - <a href="https://github.com/tabalinas/jssocials">https://github.com/tabalinas/jssocials</a></li>
+							<li>LightSlider - <a href="https://github.com/sachinchoolur/lightslider">https://github.com/sachinchoolur/lightslider</a></li>
+							<li>ToolTipster - <a href="https://github.com/iamceege/tooltipster">https://github.com/iamceege/tooltipster</a></li>
+						</ul>
+						<hr>
+						<p><i>Once again, <b>Thank you so much</b> for purchasing this product. As I said at the beginning, I'd be glad to help you if you have any questions relating to this script. No guarantees, but I'll do my best to assist. <b>Feel free to rate my plugin as 5 out of 5 stars</b>. If it's not a 5 of out 5, e-mail me and let me know what I can do to improve your experience.</i></p>
+						<hr>
+						<p><strong>Max Lawrence</strong>, <a href="mailto:avirtum@gmail.com">avirtum@gmail.com</a></p>
+					</div>
+				</div>
+				<!-- /end section -->
+			</div>
+		</div>
+	</div>
+	
+	<!-- wrap-footer -->
+	<div class="wrap-footer offset-top">
+		<div class="footer">
+			<div class="container">
+				<p>COPYRIGHT 2016. AVIRTUM. ALL RIGHTS RESERVED.</p>
+			</div>
+		</div>
+	</div>
+	<!-- /end wrap-footer -->
+</div>
+<!-- /end wrap-page -->
+
+
+
+
+<!-- scripts-section -->
+<script type="text/javascript" src="assets/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/lib/bigSlide.min.js"></script>
+<script type="text/javascript" src="assets/js/lib/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="assets/js/lib/jquery.easing.js"></script>
+<script type="text/javascript" src="assets/js/lib/fancybox/jquery.fancybox.js"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
+<!-- /end scripts-section -->
+</body>
+</html>

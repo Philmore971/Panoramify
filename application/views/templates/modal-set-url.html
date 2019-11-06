@@ -1,0 +1,15 @@
+<div id="fstpn-ui-modal-{{ modalData.id }}" class="fstpn-ui-modal" tabindex="-1">
+	<div class="fstpn-ui-modal-dialog">
+		<div class="fstpn-ui-modal-header">
+			<div class="fstpn-ui-modal-close" x-ng-click="modalData.deferred.resolve('close');">&times;</div>
+			<div class="fstpn-ui-modal-title">Image URL</div>
+		</div>
+		<div class="fstpn-ui-modal-data">
+			<input type="text" class="fstpn-ui-modal-text fstpn-ui-modal-long" x-ng-model="modalData.url">
+		</div>
+		<div class="fstpn-ui-modal-footer">
+			<div class="fstpn-ui-modal-btn fstpn-ui-modal-btn-close" x-ng-click="modalData.deferred.resolve('close');">Close</div>
+			<div class="fstpn-ui-modal-btn fstpn-ui-modal-btn-create" x-ng-click="modalData.deferred.resolve(true);">OK</div>
+		</div>
+	</div>
+</div>

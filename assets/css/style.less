@@ -1,0 +1,267 @@
+/*!
+  FastPano 360 - Virtual Tour Constructor
+  @name style.css
+  @description the script for creating a panorama viewer and virtual tours
+  @version 1.0.0
+  @author Max Lawrence 
+  @site http://www.avirtum.com
+  @copyright (c) 2016 Max Lawrence (http://www.avirtum.com)
+*/
+
+//===========================================
+// Variables
+//===========================================
+@font-family-base:Verdana, sans-serif;
+@font-family-title:'Open Sans', sans-serif;
+@container-width:900px;
+@container-login-width:460px;
+
+//===========================================
+// Colors
+//===========================================
+@color-bg:#fbfbfb;
+@color-text:#555;
+@color-white:#fff;
+@color-milk:#f1edf6;
+@color-black:#000;
+@color-dark:#333;
+@color-blue:#03a9f4;
+@color-red:#d9534f;
+@color-yellow:#f2ff54;
+@color-gray:#ccc;
+@color-orange:#ee644a;
+@color-brown:#b8915a;
+@color-green:#25b89a;
+@color-pink:#ff526a;
+@color-navy-blue:#182848;
+@color-purple:#724b9e;
+@color-light-yellow:#ffffd6;
+@color-light-gray:#ededed;
+@color-light-blue:#88a4ff;
+@color-dark-gray:#2c2d2e;
+@color-dark-deep-blue:#363c42;
+
+//===========================================
+// Mixins
+//===========================================
+.shadow(@string) {
+	-webkit-box-shadow:@string;
+	box-shadow:@string;
+}
+.transition(@string) {
+	-webkit-transition:@string;
+	transition:@string;
+}
+.box-shadow(@string) {
+	-webkit-box-shadow: @string;
+	box-shadow: @string;
+}
+.shadow(@string) {
+	-webkit-box-shadow:@string;
+	box-shadow:@string;
+}
+.gradient(@startColor: #ebebeb, @endColor: #e2e2e2) {
+	background-color:@startColor;
+	background:-webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+	background:-webkit-linear-gradient(top, @startColor, @endColor);
+}
+.transform(@string) {
+	-webkit-transform: @string;
+	transform: @string;
+}
+.transform-origin(@string) {
+	-webkit-transform-origin:@string;
+	transform-origin:@string;
+}
+.keyframes(@name; @arguments) {
+	@-webkit-keyframes @name { @arguments(); }
+	@keyframes @name { @arguments(); }
+}
+.animation(@string) {
+	-webkit-animation: @string;
+	animation: @string;
+}
+.hidden() {
+	opacity:0;
+	visibility:hidden;
+}
+.visible() {
+	opacity:1;
+	visibility:visible;
+}
+.noselect() {
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+}
+.clearfix {
+	*zoom: 1;
+	&:before,
+	&:after {
+		display:table;
+		content:'';
+		// Fixes Opera/contenteditable bug:
+		// http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+		line-height:0;
+	}
+	&:after {
+		clear:both;
+	}
+}
+.reset-text() {
+	font-family:@font-family-base;
+	// We deliberately do NOT reset font-size.
+	font-style:normal;
+	font-weight:normal;
+	letter-spacing:normal;
+	line-break:auto;
+	line-height:@line-height-base;
+	text-align:left; // Fallback for where `start` is not supported
+	text-align:start;
+	text-decoration:none;
+	text-shadow:none;
+	text-transform:none;
+	white-space:normal;
+	word-break:normal;
+	word-spacing:normal;
+	word-wrap:normal;
+}
+//===========================================
+// General
+//===========================================
+html,
+body {
+	position:relative;
+	margin:0;
+	padding:0;
+	height:100%;
+	min-height:100%;
+	font-family:@font-family-base;
+	font-size:12px;
+	color:@color-text;
+	background-color:@color-navy-blue;
+	background-image:linear-gradient(140deg, #5c2b58 10%, #b25f6f 90%);
+	-webkit-font-smoothing:antialiased;
+	overflow:hidden;
+}
+//===========================================
+// UI
+//===========================================
+.fstpn-ui-page {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+.fstpn-ui-panorama-wrap {
+	position:relative;
+	width:100%;
+	height:100%;
+	
+	.fstpn-ui-panorama {
+		position:relative;
+		width:100%;
+		height:100%;
+		background:@color-gray;
+	}
+	
+	.fstpn-ui-panorama-slider-wrap {
+		.transition(all .5s linear;);
+		position:absolute;
+		bottom:0;
+		left:0;
+		right:0;
+		padding:10px 0;
+		height:80px;
+		background:fade(@color-black, 40%);
+	}
+	
+	.fstpn-ui-panorama-slider-toggle {
+		.transition(opacity .5s linear;);
+		position:absolute;
+		top:-40px;
+		left:0;
+		width:40px;
+		height:40px;
+		background-size:contain;
+		background-color:fade(@color-black, 40%);
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAc9JREFUeNrsmt1KAkEUx1212ywywaJnih4ggqC7vovK8KLnCLrqUwlM61l6jyA37YPpP7ALi+k2MzszFv4P/C73zPlxzpxdxEAIkZukyOcmLChMYQpTmMIUpjCFKUxhClOYwhSmMIUpPBjrIAQiog2qFusLQA18Jc44ByXjjPJHPEM2wIv4GR2wkCFvTBHUwPuQMy7AtEle02LWwKsYHQ+gmkG2AE5AP+WMW7DiSzitkKzSAaiDD4UznnXzu1xay9F907nTBXAE6qDoZAcZdnhTscsynsCiYt5jjbxtsOprpCU7v9zjZDyCpZRcU5FsTzHfNSj7XFoxu+BNoyPVEXf2QKOzclnNmdacs/D6kJ0OFYvtDEhL2VPwqfj8FShlqdeGsG6nW2A+eu4QdBWfuzQdYxfCki2NsWyCMw1ZeWdnbdRpUziWVl1kwvWC8iEcj3doSfYuy4LyJRx3uptR9gbM2K7NlXAe7GsssmGyZRe1uRJOdrqnKdu0PcY+hQPN8W6AisuaXAvrvKdbrsZ4HMKS7ZTtfW/rPfuXhOV47w35OGn46Ow4hJOd7icWVMXn+QH/mEZhClOYwhSmMIUpTGEKU5jCFKYwhSn83+NbgAEAlEePhEInJyIAAAAASUVORK5CYII=);
+		cursor:pointer;
+		opacity:1;
+		
+		&.fstpn-ui-hidden {
+			opacity:0;
+		}
+	}
+	
+	.fstpn-ui-panorama-slider-wrap.fstpn-ui-hidden {
+		.transform(translateY(100px));
+		
+		.fstpn-ui-panorama-slider-toggle {
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAbZJREFUeNrsmstKw0AUhpuqWy+ohVp8KB9ABEFXWusFWl25cOUjCK60XoqgUR/GN3AtWGukdfwHXMSQpnOayZTY/8C360zycc6cU4Z4SqnCOEWxMGZBYQpTmMIUpjCFKUxhClOYwhSmMIUpTGEbUQUB0JdpLVBy+nR9iecID+yCQP2NW7Dg6j1cClfBh4qPOzD3n4RroKOS495Fpl2U8TZoK7PQ5V3Ks7CW/VSyaIH5vAkXwZ5BGfeLq6zKO8vMtlW60NKzeRCuJXRjadzYLu8sMvuu7EbTZnnblg0EjelYUPZNW3Pa5ZwNz9vF33UHAukLG5m2IbsjOLOPoByZ00ega7j+EsyMUliSWT8iG5beFxyH6zSNLG1mTRvUE1hO2GsK1AV/UoZuZMPKbgky8gwqhvvWBfvqill1JRwIMlsW7DshzPSL9N2zvADwwSZ4FazpgVNwAroGv/92dQGwNuD8PggzG5fpxoBK0s1rxWXT2gBvfUbPkoVxNwkOwVfMM87B9CjG0npkBvspMxs3srR0L/SMszSz2OOHaRSmMIUpTGEKU5jCFKYwhSlMYQpTmMJ5jx8BBgBYE5WHX1yTjAAAAABJRU5ErkJggg==);
+		}
+	}
+	
+	.fstpn-ui-panorama-slider {
+		margin:0 auto;
+	}
+	
+	.fstpn-ui-panorama-slider-thumb {
+		cursor:pointer;
+		
+		img {
+			.transition(all .3s linear;);
+			margin:0;
+			padding:0;
+			height:80px;
+			border:2px solid fade(@color-black,50%);
+			margin-left:-1px;
+		}
+		
+		&.fstpn-ui-active,
+		&:hover {
+			img {
+				border-color:@color-white;
+			}
+		}
+	}
+	
+	.fstpn-ui-panorama-share-wrap {
+		.transition(all .5s linear;);
+		position:absolute;
+		top:-120px;
+		left:0;
+		right:0;
+		opacity:0;
+		text-align:center;
+		
+		&.fstpn-ui-active {
+			top:40px;
+			opacity:1;
+		}
+	}
+	
+	.fstpn-ui-panorama-share {
+		display:inline-block;
+	}
+	
+	.fstpn-ui-panorama-embed-code {
+		display:inline-block;
+		padding: .8em .6em;
+		min-width:300px;
+		border-radius: 0.3em;
+		border: 2px solid rgba(0,0,0,0.5);
+		outline:none;
+		background-color:rgba(0,0,0,0.5);
+		color: #fff;
+		-webkit-transition: all 200ms ease-in-out;
+		transition: all 200ms ease-in-out;
+		opacity:0;
+		
+		&.fstpn-ui-active {
+			opacity:1;
+		}
+	}
+}
